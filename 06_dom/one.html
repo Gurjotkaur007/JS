@@ -1,0 +1,83 @@
+<!-- very imp-DOM manipulation and events in the iv. DOM-Document Object Model  -->
+ 
+<!--
+document.getElementById('title')
+<h1 id=​"title" class=​"heading">​DOM learning​</h1>​
+document.getElementById('title').className - with claasname it provides not with class. When structure is built in DOM we write classname
+'heading'
+
+document.getElementById('title').getAttribute('id')
+'title'
+document.getElementById('title').getAttribute('class')
+'heading'
+
+document.getElementById('title').setAttribute('class','test')
+undefined - this gives undefined but if you see in inspect in element u will notice chance this value gets overwrite 
+
+document.getElementById('title').setAttribute('class','test heading')
+undefined    -this set class value to test heading
+
+const title=document.getElementById('title')
+undefined
+
+title  -can access with this variable
+<h1 id=​"title" class=​"heading">​DOM learning​</h1>​
+
+title.style.background="green"
+'green'
+
+title.style.padding="70px"
+'70px'
+
+title.style.borderRadius="20px"
+'20px'
+
+title
+<h1 id=​"title" class=​"heading" style=​"background:​ green;​ padding:​ 70px;​ border-radius:​ 20px;​">​DOM learning​</h1>​
+title.textContent
+'DOM learning'
+
+title.innerHTML  //a;so supports inner tags
+'DOM learning<span style="display: none;">text text</span>'
+title.textContent  //shows all the content includeing hidden one
+'DOM learningtext text'
+title.innerText   //only shows visible content
+'DOM learning'
+
+
+//Query selector-mostly used
+document.querySelector('h2')
+<h2>​Lorem ipsum dolor sit amet consectetur​</h2>​  //only returns first one (h2)
+
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id='title' class="heading">DOM learning<span style="display: none;">text text</span></h1>
+        <h2>Lorem ipsum dolor sit amet consectetur</h2>
+        <h2>Lorem ipsum dolor sit amet </h2>
+        <h2>Lorem ipsum dolor sit</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <input type="password" name="" id="">
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+        </ul>
+    </div>
+</body> 
+</html>
