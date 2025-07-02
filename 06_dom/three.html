@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color:#fff;">
+    
+</body>
+<script>
+    //to create div element 
+    const mydiv=document.createElement('div')
+    console.log(mydiv);
+    //to create h1 element 
+    const myh1=document.createElement('h1')
+    console.log(myh1);
+    mydiv.className='main';
+    mydiv.id=Math.round((Math.random()*10)+1);
+    mydiv.setAttribute("title","generated title");
+    mydiv.style.backgroundColor="green";
+    mydiv.style.padding="15px";
+    // mydiv.innerHTML="Hello Dom";
+    const addtext=document.createTextNode("hello Dom");
+    mydiv.appendChild(addtext);
+    document.body.appendChild(mydiv);
+
+    //you can now make a function to add an element , just pass text color, background color as argument
+</script>
+</html>
