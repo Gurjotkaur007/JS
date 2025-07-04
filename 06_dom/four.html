@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121;color: #fff;">
+    <ul class="Language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addlang(langname){
+        const li=document.createElement('li');
+        li.innerHTML=langname;
+        document.querySelector('.Language').appendChild(li)
+    }
+    addlang("Python");
+    addlang("Java");
+
+    //optimized way
+    function optilang(langname){
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langname));
+        document.querySelector('.Language').appendChild(li);
+    }
+optilang("Ruby");
+
+
+//How to edit or to do changes
+//first way-using innerHtml
+//i want to change second value i.e python 
+const secondval=document.querySelector('li:nth-child(2)');
+secondval.innerHTML="Mojo";
+
+//but this is not the optimized wayso 2nd way -replacing
+const sec_val=document.querySelector('li:nth-child(2)');
+const new_li=document.createElement('li');
+new_li.textContent="Nojo"; //textcontext is just same as the innerHTML
+sec_val.replaceWith(new_li);
+
+//3rd way
+const firstval=document.querySelector('li:first-child')
+firstval.outerHTML="<li>TypeScript</li>";
+
+
+//remove
+const last_child=document.querySelector('li:last-child');
+last_child.remove();
+</script>
+</html> 
