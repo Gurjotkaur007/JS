@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h2>Amazing Pics</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="dog" src="https://th.bing.com/th/id/R.36b45f928c530c97d00da82494c282ea?rik=nmZ2%2f9rMecwUFA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-M8-8zQxlHsA%2fUnUosWHQbKI%2fAAAAAAAABRM%2fpIsNpZoAqFQ%2fs1600%2fDog.jpg&ehk=fBrrEjcJG7veLEDZoLYeDqQPYoTrgcFGBvBSTJkZytM%3d&risl=&pid=ImgRaw&r=0"  onclick="alert('this is a dog')"></li>
+            <li><img width="200px" id="cat" src="https://tse3.mm.bing.net/th/id/OIP.X0Z5wiSJnHplWYaY-aReRQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3"></li>
+            <li><img width="200px" id="bird" src="https://tse2.mm.bing.net/th/id/OIP.dEEYSUi43I4X-vu0hsh2kwHaFC?rs=1&pid=ImgDetMain&o=7&rm=3"></li>
+            <li><img width="200px" id="hamster" src="https://www.vet.cornell.edu/sites/default/files/Hamsters-03-scaled.jpg"></li>
+            <li><img width="200px" id="guineapig" src="https://supremepetfoods.com/wp-content/uploads/2020/03/cuddling-guinea-pigs.jpg"></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    /* document.getElementById('cat').onclick=function(){
+        alert('This is a cat');
+    }*/
+    document.getElementById('bird').addEventListener('click',function(){
+        alert('Bird clicked');
+    },false)
+    /*document.getElementById('hamster').addEventListener('click',function(e){
+        console.log(e);
+    })*/
+   document.getElementById('images').addEventListener('click',function(){
+    console.log('Clicked inside UL')
+   },false)
+   document.getElementById('bird').addEventListener('click',function(){
+    console.log('Clicked bird')
+   },false)
+   /* stop propagation
+   document.getElementById('cat').addEventListener('click',function(e ){
+    console.log("cat clicked yo");
+    e.stopPropagation();
+   },false)
+
+   document.getElementById('google').addEventListener('click',function(e){
+    console.log('Google Clicked');
+    e.preventDefault();
+   },false)*/
+
+   //To delete the image when clicked
+   //will not select the images one by one through id like first dog then cat then..... this becomes tedious as if we have 100 images it will be difficult so select the main target that is id='images' in ul.
+   document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.parentNode);
+    let rem=e.target.parentNode;
+    rem.remove();
+   })  
+
+   //now as we used previously stop propagation on cat - so when clicked on cat we don't get the parent node i.e li . so remove the stop propagation.
+   
+
+
+   //Mistake- now if we click google it deletes all the images and google as well -why- beacuse its parent was ul(li-google ka parent ul) not li.BUT when we used PREVENTDEFAULT method on google it will not delete the entire ul , it will only delete the google 
+
+
+   //so without using prevent default - strict check
+   document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.parentNode);
+    console.log(e.target.tagName);
+    
+    if(e.target.tagName==='IMG'){
+        console.log(e.target.id);
+        let rem=e.target.parentNode;
+        rem.remove();
+    }
+    
+   })  
+</script>
+</html>
