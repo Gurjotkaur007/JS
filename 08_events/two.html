@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    setTimeout(function(){
+        console.log("Hi,there!");
+    },2000)  
+    
+
+    console.log("Start");
+    const run=function(){
+        console.log("Runs after 2 seconds");
+    }
+    setTimeout(run, 2000 );
+    console.log("End");
+
+
+    const change=function(){
+        document.querySelector('h1').innerHTML="JavaScript";
+    }
+    const changeMe=setTimeout(change,4000);
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe);
+        console.log("Stopped");
+    })
+
+
+</script>
+</html>
