@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    let setting_interval;
+    document.querySelector('#start').addEventListener('click',function(){
+    setting_interval=setInterval(function(greet,str){
+        console.log(greet,str,Date.now());
+    },1000,"Hi","All");
+    })
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(setting_interval);
+    })
+</script>
+</html>
