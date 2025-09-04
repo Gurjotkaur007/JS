@@ -1,0 +1,31 @@
+<!--Implemention of closure-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="green" style="background-color: green;">Green</button>
+    <button id="orange" style="background-color: orange;">Orange</button>
+</body>
+<script>
+    /*document.getElementById('green').onclick=function(){
+        document.body.style.backgroundColor=`green`;
+    }
+
+    document.getElementById('orange').onclick=function(){
+        document.body.style.backgroundColor=`orange`;
+    }  */
+    //now what if you have to make 500 buttons an assign them color with the given list of array
+
+    function clickHander(color){
+        return function(){
+            document.body.style.backgroundColor=color;
+        }
+    }
+    document.getElementById('green').onclick=clickHander('green');
+    document.getElementById('orange').onclick=clickHander('orange');
+</script>
+</html>
